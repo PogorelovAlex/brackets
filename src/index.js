@@ -1,3 +1,19 @@
 module.exports = function check(str, bracketsConfig) {
-  // your solution
+  let mergeArray = config => {
+    return config.map(item => {
+      return item.join('');
+    });
+  }
+  
+  let brackets = mergeArray(bracketsConfig);
+  for (let i = 0; i < brackets.length;) {
+      if (str.indexOf(brackets[i]) !== -1) {
+        str = str.replace(brackets[i], '');
+        i = 0;
+      } else {
+        i++;
+      }
+  };
+  return !str;
 }
+  
